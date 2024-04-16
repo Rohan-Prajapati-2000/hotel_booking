@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hotel_booking/features/shop/screens/home/home.dart';
 import 'package:iconsax/iconsax.dart';
 
+import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/constants/text_strings.dart';
 import '../../../../../utils/validators/validator.dart';
@@ -45,17 +47,6 @@ class SSignupForm extends StatelessWidget {
                       prefixIcon: Icon(Iconsax.user)),
                 )),
               ],
-            ),
-            const SizedBox(height: SSizes.spaceBtwInputField),
-
-            /// User Name
-            TextFormField(
-              controller: controller.userName,
-              validator: (value) =>
-                  SValidator.validateEmptyText('User Name', value),
-              decoration: const InputDecoration(
-                  labelText: SText.userName,
-                  prefixIcon: Icon(Iconsax.user_edit)),
             ),
             const SizedBox(height: SSizes.spaceBtwInputField),
 
@@ -104,8 +95,12 @@ class SSignupForm extends StatelessWidget {
             SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                    onPressed: () => controller.signUp(),
-                    child: const Text(SText.createAccount)))
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: SColors.primaryColor,
+                        side: BorderSide(width: 0)),
+                    onPressed: () => Get.to(()=> HomeScreen()),
+                    child: const Text(SText.createAccount,
+                        style: TextStyle(color: Colors.white)))),
           ],
         ));
   }

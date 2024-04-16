@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hotel_booking/utils/constants/colors.dart';
 
 import '../../../../common/styles/spacing_styles.dart';
 import '../../../../common/widgets/form_divider.dart';
@@ -14,25 +15,31 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return const Scaffold(
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: SSpacingStyle.paddingWithAppBarHeight,
-          child: Column(
-            children: [
-              /// Logo title & subtitle
-              SLoginHeader(),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Login', style: Theme.of(context).textTheme.headlineMedium!.apply(color: SColors.primaryColor)),
+        automaticallyImplyLeading: false,
+      ),
+      body: Center(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: SSpacingStyle.paddingWithAppBarHeight,
+            child: Column(
+              children: [
+                /// Logo title & subtitle
+                SLoginHeader(),
 
-              /// Form
-              SLoginForm(),
+                /// Form
+                SLoginForm(),
 
-              /// Divider
-              SFormDivider(dividerText: SText.orSignInWith),
-              SizedBox(height: SSizes.spaceBtwSections),
+                /// Divider
+                SFormDivider(dividerText: SText.orSignInWith),
+                SizedBox(height: SSizes.spaceBtwItems),
 
-              /// Footer
-              SSocialButtons()
-            ],
+                /// Footer
+                SSocialButtons()
+              ],
+            ),
           ),
         ),
       ),

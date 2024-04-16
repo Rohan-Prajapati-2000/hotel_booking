@@ -20,6 +20,7 @@ class STermsAndCondition extends StatelessWidget {
       children: [
         SizedBox(height: 24, width: 24, child: Obx(
                 ()=> Checkbox(
+                  activeColor: SColors.primaryColor,
                     value: controller.privacyPolicy.value,
                     onChanged: (value) => controller.privacyPolicy.value = !controller.privacyPolicy.value),
         )),
@@ -28,15 +29,15 @@ class STermsAndCondition extends StatelessWidget {
             TextSpan(children: [
               TextSpan(text: "${SText.iAgreeTo} ", style: Theme.of(context).textTheme.bodySmall),
               TextSpan(text: "${SText.privacyPolicy} ", style: Theme.of(context).textTheme.bodySmall!.apply(
-                  color: dark ? SColors.white : SColors.primaryColor,
+                  color: SColors.primaryColor,
                   decoration: TextDecoration.underline,
-                  decorationColor: dark ? SColors.white : SColors.primaryColor
+                  decorationColor: SColors.primaryColor
               )),
               TextSpan(text: 'and ', style: Theme.of(context).textTheme.bodySmall),
               TextSpan(text: SText.termsOfUse, style: Theme.of(context).textTheme.bodySmall!.apply(
-                  color: dark ? SColors.white : SColors.primaryColor,
+                  color: SColors.primaryColor,
                   decoration: TextDecoration.underline,
-                  decorationColor: dark ? SColors.white : SColors.primaryColor
+                  decorationColor: SColors.primaryColor
               ))
             ])
         )

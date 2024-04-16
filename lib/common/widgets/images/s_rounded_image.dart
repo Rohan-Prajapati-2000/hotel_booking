@@ -9,7 +9,7 @@ class SRoundedImage extends StatelessWidget {
     this.padding,
     this.onPressed,
     this.width = double.infinity,
-    this.height = 250,
+    this.height = 180,
     this.applyImageRadius = true,
     required this.imageUrl,
     this.boxFit = BoxFit.cover,

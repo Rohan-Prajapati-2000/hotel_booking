@@ -12,7 +12,7 @@ class SSocialButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(LoginController());
+    // final controller = Get.put(LoginController());
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -21,7 +21,8 @@ class SSocialButtons extends StatelessWidget {
               border: Border.all(color: SColors.grey),
               borderRadius: BorderRadius.circular(100)),
           child: IconButton(
-              onPressed: () => controller.googleSignIn(),
+              // onPressed: () => controller.googleSignIn(),
+            onPressed: (){},
               icon: const Image(
                   height: SSizes.iconMd,
                   width: SSizes.iconMd,

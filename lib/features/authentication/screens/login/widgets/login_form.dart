@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
+import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/constants/text_strings.dart';
 import '../../../../../utils/validators/validator.dart';
-import '../../../controllers/login/login_controller.dart';
 import '../../password_configuration/forget_password.dart';
 import '../../signup/signup.dart';
 
@@ -16,18 +16,13 @@ class SLoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(LoginController());
-
     return Form(
-      key: controller.loginFormKey,
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: SSizes.spaceBtwSections),
+        padding: const EdgeInsets.symmetric(vertical: SSizes.spaceBtwItems),
         child: Column(
           children: [
             /// Email
             TextFormField(
-              controller: controller.email,
-              validator: (value) => SValidator.validateEmail(value),
               decoration: const InputDecoration(
                   prefixIcon: Icon(Iconsax.direct_right),
                   labelText: SText.email),
@@ -35,22 +30,16 @@ class SLoginForm extends StatelessWidget {
             const SizedBox(height: SSizes.spaceBtwInputField),
 
             /// Password
-            Obx(
-              () => TextFormField(
-                controller: controller.password,
-                validator: (value) =>
-                    SValidator.validateEmptyText('Password', value),
-                obscureText: controller.hidePassword.value,
-                decoration: InputDecoration(
-                  prefixIcon: const Icon(Iconsax.password_check),
-                  labelText: SText.password,
-                  suffixIcon: IconButton(
-                    onPressed: () => controller.hidePassword.value =
-                        !controller.hidePassword.value,
-                    icon: Icon(controller.hidePassword.value
-                        ? Iconsax.eye_slash
-                        : Iconsax.eye),
-                  ),
+            TextFormField(
+              validator: (value) =>
+                  SValidator.validateEmptyText('Password', value),
+              obscureText: true,
+              decoration: InputDecoration(
+                prefixIcon: const Icon(Iconsax.password_check),
+                labelText: SText.password,
+                suffixIcon: IconButton(
+                  onPressed: () {},
+                  icon: Icon(Iconsax.eye_slash),
                 ),
               ),
             ),
@@ -63,10 +52,10 @@ class SLoginForm extends StatelessWidget {
                 ///Remember me
                 Row(
                   children: [
-                    Obx(
-                      () => Checkbox(
-                          value: controller.rememberMe.value,
-                          onChanged: (value) => controller.rememberMe.value = !controller.rememberMe.value),
+                    Checkbox(
+                      value: true,
+                      onChanged: (bool? value) {},
+                      activeColor: SColors.primaryColor,
                     ),
                     const Text(SText.rememberMe),
                   ],
@@ -75,24 +64,30 @@ class SLoginForm extends StatelessWidget {
                 /// Forget Password
                 TextButton(
                     onPressed: () => Get.to(() => const ForgetPassword()),
-                    child: const Text(SText.forgetPassword)),
+                    child: const Text(SText.forgetPassword,
+                        style: TextStyle(color: SColors.primaryColor))),
               ],
             ),
-            const SizedBox(height: SSizes.spaceBtwSections),
+            const SizedBox(height: SSizes.spaceBtwSections / 2),
 
             /// Sign In Button
             SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                    onPressed: () => controller.emailAndPasswordSignIn(),
-                    child: const Text(SText.signIn))),
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: SColors.primaryColor,
+                        side: BorderSide(width: 0)),
+                    onPressed: () {},
+                    child: const Text(SText.signIn,
+                        style: TextStyle(color: Colors.white)))),
             const SizedBox(height: SSizes.spaceBtwItems),
 
             /// create account button
             SizedBox(
                 width: double.infinity,
                 child: OutlinedButton(
-                    onPressed: () => Get.to(() => const SignupScreen()),
+                    style: OutlinedButton.styleFrom(side: BorderSide(width: 0)),
+                    onPressed: () => Get.to(() => SignupScreen()),
                     child: const Text(SText.createAccount)))
           ],
         ),

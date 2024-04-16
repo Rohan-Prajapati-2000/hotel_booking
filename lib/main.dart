@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:hotel_booking/features/authentication/screens/login/login.dart';
+import 'package:hotel_booking/utils/theme/theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,8 +12,12 @@ class MyApp extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      themeMode: ThemeMode.system,
+      theme: SAppTheme.lightTheme,
+      darkTheme: SAppTheme.darkTheme,
+      home: LoginScreen(),
     );
   }
 }

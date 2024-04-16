@@ -80,5 +80,8 @@ class SImage{
   static const String successRegistrationAnimation = 'assets/animation/loading_animation/success.json';
   static const String verify1 = 'assets/animation/loading_animation/verify.json';
 
+  /// Hotel Image
+  static const String noidaHotel = 'assets/images/hotel_image/noida_hotel.jpg';
+
 
 }

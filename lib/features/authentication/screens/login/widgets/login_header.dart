@@ -15,16 +15,13 @@ class SLoginHeader extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Image(
-          height: 150,
-          image: AssetImage(
-              dark ? SImage.lightAppLogo : SImage.darkAppLogo),
-        ),
+        // Image(
+        //   height: 150,
+        //   image: AssetImage(
+        //       dark ? SImage.lightAppLogo : SImage.darkAppLogo),
+        // ),
         Text(SText.loginTitle,
-            style: Theme.of(context).textTheme.headlineMedium),
-        const SizedBox(height: SSizes.sm),
-        Text(SText.loginSubTitle,
-            style: Theme.of(context).textTheme.bodyMedium),
+            style: Theme.of(context).textTheme.headlineSmall),
       ],
     );
   }

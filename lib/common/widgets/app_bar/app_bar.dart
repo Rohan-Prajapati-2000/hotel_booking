@@ -6,6 +6,7 @@ import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
 import '../../../utils/device/device_utility.dart';
 import '../../../utils/helpers/helper_functions.dart';
+
 class SAppBar extends StatelessWidget implements PreferredSizeWidget {
   const SAppBar(
       {super.key,
@@ -13,12 +14,14 @@ class SAppBar extends StatelessWidget implements PreferredSizeWidget {
       this.showBackArrow = false,
       this.leadingIcon,
       this.actions,
+      this.backgroundColor = SColors.primaryColor,
       this.leadingOnPressed});
 
   final Widget? title;
   final bool showBackArrow;
   final IconData? leadingIcon;
   final List<Widget>? actions;
+  final Color? backgroundColor;
   final VoidCallback? leadingOnPressed;
 
   @override
@@ -29,8 +32,16 @@ class SAppBar extends StatelessWidget implements PreferredSizeWidget {
       child: AppBar(
         automaticallyImplyLeading: false,
         leading: showBackArrow
-            ? IconButton(onPressed: () => Get.back(), icon: Icon(Iconsax.arrow_left, color: dark ? SColors.white : SColors.black,))
-            : leadingIcon != null ? IconButton(onPressed: leadingOnPressed, icon: Icon(leadingIcon)) : null,
+            ? IconButton(
+                onPressed: () => Get.back(),
+                icon: Icon(
+                  Iconsax.arrow_left,
+                  color: dark ? SColors.primaryColor : SColors.primaryColor,
+                ))
+            : leadingIcon != null
+                ? IconButton(
+                    onPressed: leadingOnPressed, icon: Icon(leadingIcon))
+                : null,
         title: title,
         actions: actions,
       ),

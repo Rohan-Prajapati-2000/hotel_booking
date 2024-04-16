@@ -4,7 +4,7 @@ class SColors{
   SColors._();
 
   // App basic color
-  static const Color primaryColor = Color(0xFF4B68FF);
+  static const Color primaryColor = Color(0xFFFD7F00);
   static const Color secondaryColor = Color(0xFFFFE24B);
   static const Color accent = Color(0xFFB0C7FF);
 
@@ -38,7 +38,7 @@ class SColors{
   static  Color darkContainer = Colors.white.withOpacity(0.1);
 
   // Button Color
-  static const Color buttonPrimary = Color(0xFF4b68ff);
+  static const Color buttonPrimary = Color(0xFFFD7F00);
   static const Color buttonSecondary = Color(0xFF6c757d);
   static const Color buttonDisabled = Color(0xFFc4c4c4);
 
