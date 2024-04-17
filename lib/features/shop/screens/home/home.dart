@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:hotel_booking/common/widgets/custom_shape/containers/circular_container.dart';
 import 'package:hotel_booking/common/widgets/texts/section_heading.dart';
+import 'package:hotel_booking/features/shop/screens/hotel_detail/hotel_details_screen.dart';
 import 'package:hotel_booking/utils/constants/colors.dart';
 import 'package:hotel_booking/utils/constants/sizes.dart';
 import 'package:hotel_booking/utils/helpers/helper_functions.dart';
@@ -44,14 +46,17 @@ class HomeScreen extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   itemCount: 10,
                   itemBuilder: (_, index){
-                    return SRoundedContainer(
-                      height: 290,
-                      width:250,
-                      radius: 20,
-                      backgroundColor: dark ? SColors.primaryColor : SColors.grey,
-                      child: Padding(
-                        padding: const EdgeInsets.all(SSizes.defaultSpace/2),
-                        child: SRecommendedHotel(),
+                    return GestureDetector(
+                      onTap: ()=> Get.to(()=> SHotelDetailSccreen()),
+                      child: SRoundedContainer(
+                        height: 290,
+                        width:250,
+                        radius: 20,
+                        backgroundColor: dark ? SColors.primaryColor : SColors.grey,
+                        child: Padding(
+                          padding: const EdgeInsets.all(SSizes.defaultSpace/2),
+                          child: SRecommendedHotel(),
+                        ),
                       ),
                     );
                   }, separatorBuilder: (_, index){
@@ -75,14 +80,17 @@ class HomeScreen extends StatelessWidget {
               child: SGridLayout(
                   itemCount: 10,
                   itemBuilder: (_, index){
-                return  SRoundedContainer(
-                  height: 290,
-                  width:250,
-                  radius: 20,
-                  backgroundColor: dark ? SColors.darkerGrey : SColors.grey,
-                  child: Padding(
-                    padding: const EdgeInsets.all(SSizes.defaultSpace/2),
-                    child: SRecommendedHotel(),
+                return  GestureDetector(
+                  onTap: ()=> Get.to(()=> SHotelDetailSccreen()),
+                  child: SRoundedContainer(
+                    height: 290,
+                    width:250,
+                    radius: 20,
+                    backgroundColor: dark ? SColors.darkerGrey : SColors.grey,
+                    child: Padding(
+                      padding: const EdgeInsets.all(SSizes.defaultSpace/2),
+                      child: SRecommendedHotel(),
+                    ),
                   ),
                 );
               }),
