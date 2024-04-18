@@ -26,7 +26,7 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           children: [
             /// Search Bar
-            SSearchBar(),
+            SHomeSearchBar(),
 
             SizedBox(height: SSizes.spaceBtwItems),
 

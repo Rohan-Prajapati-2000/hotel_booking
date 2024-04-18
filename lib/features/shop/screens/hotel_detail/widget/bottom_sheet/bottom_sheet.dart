@@ -23,7 +23,7 @@ class SBottomSheet extends StatelessWidget {
           SGuestTypeWithCounter(guestType: 'Children'),
           SizedBox(height: SSizes.spaceBtwItems/2),
           SGuestTypeWithCounter(guestType: 'Room'),
-          SizedBox(height: SSizes.spaceBtwItems/2),
+          SizedBox(height: SSizes.spaceBtwItems),
 
           SizedBox(
               width: double.infinity,
