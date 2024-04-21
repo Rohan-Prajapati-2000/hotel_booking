@@ -48,6 +48,7 @@ class SHomeSearchBar extends StatelessWidget {
                   ),
                 ),
               ),
+              SizedBox(height: SSizes.spaceBtwItems)
             ],
           ),
         ),

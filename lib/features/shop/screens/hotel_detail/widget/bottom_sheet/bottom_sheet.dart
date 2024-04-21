@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 import 'package:hotel_booking/common/widgets/texts/section_heading.dart';
+import 'package:hotel_booking/payment_screen.dart';
 import 'package:hotel_booking/utils/constants/sizes.dart';
 import '../../../../../../utils/constants/colors.dart';
 import '../../../../../../utils/constants/text_strings.dart';
@@ -31,7 +33,7 @@ class SBottomSheet extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                       backgroundColor: SColors.primaryColor,
                       side: BorderSide(width: 0)),
-                  onPressed: () {},
+                  onPressed: () => Get.to(()=> PaymentScreen()),
                   child: const Text(SText.scontinue,
                       style: TextStyle(color: Colors.white)))),
 
