@@ -66,6 +66,7 @@ flutter:
   assets:
     - assets/logos/
     - assets/images/hotel_image/
+    - assets/icons/payment_method/
 
 
   fonts:

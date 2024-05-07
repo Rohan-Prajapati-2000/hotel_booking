@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hotel_booking/utils/constants/colors.dart';
 
 class SSectionHeading extends StatelessWidget {
   const SSectionHeading({
@@ -24,7 +23,7 @@ class SSectionHeading extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(title, style: Theme.of(context).textTheme.headlineSmall!.apply(color: textColor), maxLines: 1, overflow: TextOverflow.ellipsis),
-            if(showActionButton) TextButton(onPressed: onPressed, child: Text(buttonTitle, style: TextStyle(color: SColors.primaryColor)))
+            if(showActionButton) TextButton(onPressed: onPressed, child: Text(buttonTitle, style: TextStyle(color: Colors.blue)))
           ],
         ),
       ],

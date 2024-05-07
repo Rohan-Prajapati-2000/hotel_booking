@@ -1,15 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:hotel_booking/common/widgets/custom_shape/containers/circular_container.dart';
-import 'package:hotel_booking/utils/constants/colors.dart';
 
+import 'common/widgets/custom_shape/containers/circular_container.dart';
 import 'common/widgets/texts/section_heading.dart';
+import 'features/shop/screens/checkout/widgets/billing_payment_section.dart';
 import 'features/shop/screens/payment/widgets/heading_with_price.dart';
 import 'features/shop/screens/payment/widgets/hotel_image_name_with_rating.dart';
+import 'utils/constants/colors.dart';
 import 'utils/constants/sizes.dart';
+import 'utils/helpers/helper_functions.dart';
 
 class PaymentScreen extends StatelessWidget {
+  const PaymentScreen({super.key});
+
+
   @override
   Widget build(BuildContext context) {
+    final dark = SHelperFunctions.isDarkMode(context);
+
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -33,6 +40,8 @@ class PaymentScreen extends StatelessWidget {
               SizedBox(height: SSizes.spaceBtwItems),
               SRoundedContainer(
                 showBorder: true,
+                // backgroundColor: dark ? SColors.darkerGrey : SColors.grey,
+                backgroundColor: SColors.primaryColor,
                 borderColor: SColors.primaryColor,
                 padding: EdgeInsets.symmetric(vertical: SSizes.defaultSpace),
                 child: Row(
@@ -81,6 +90,7 @@ class PaymentScreen extends StatelessWidget {
               SSectionHeading(title: 'Price :-', showActionButton: false),
               SRoundedContainer(
                 showBorder: true,
+                backgroundColor: SColors.primaryColor,
                 borderColor: SColors.primaryColor,
                 padding: EdgeInsets.symmetric(
                     vertical: SSizes.defaultSpace,
@@ -108,12 +118,22 @@ class PaymentScreen extends StatelessWidget {
                     SizedBox(height: SSizes.spaceBtwItems),
                     Divider(),
 
-                    SSectionHeading(title: "Payment Method", showActionButton: true, buttonTitle: 'change'),
-                    SizedBox(height: SSizes.spaceBtwItems),
-
-
-
+                    SBillingPaymentSection()
                   ],
+                ),
+              ),
+
+              SizedBox(height: SSizes.spaceBtwItems),
+
+              SizedBox(
+                width: double.infinity,
+                height: 50,
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: SColors.primaryColor
+                  ),
+                    onPressed: (){},
+                    child: Text("Pay", style: Theme.of(context).textTheme.titleLarge!.apply(color: Colors.white))
                 ),
               )
             ],
